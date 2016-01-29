@@ -13,7 +13,7 @@ resolvers ++= Seq(
 )
 
 packAutoSettings ++ Seq(
-  packMain := Map("startRest.sh" -> "com.mentatlabs.RestClient")
+  packMain := Map("startClient.sh" -> "com.mentatlabs.RestClient")
 )
 
 

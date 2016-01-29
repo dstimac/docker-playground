@@ -14,7 +14,6 @@ import scala.concurrent.ExecutionContext
   */
 object RestService extends App with SimpleRoutingApp {
   val logger = LoggerFactory.getLogger(RestService.getClass)
-//  ConsulHandler.register()
 
   private implicit val system = ActorSystem("docker-playground-rest")
 
@@ -38,6 +37,7 @@ object RestService extends App with SimpleRoutingApp {
       pathEnd {
         get {
           complete {
+            logger.debug("Handling health request...")
             ""
           }
         }
@@ -45,7 +45,7 @@ object RestService extends App with SimpleRoutingApp {
     }
   }
 
-  startServer(interface = "localhost", port = 8080) {
+  startServer(interface = "0.0.0.0", port = 8080) {
     detach()(routes)
   }
 }
